@@ -1,0 +1,49 @@
+{% extends 'about/base.html' %}
+    
+    {% block title %}
+    <title>User profiles</title>
+    {% endblock title %}
+
+    {% block content %}
+
+    {% if  users%}
+    <h2 style="text-align: center;">Current candidates</h2>
+        <div class="album py-5">
+            <div class="container">
+      
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for user in users %}
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <div class="bg-dark text-white rounded-top">
+                      <h4 style="text-align: center; padding: 10px;">{{user.first_name}} {{user.last_name}}</h4>
+                    </div>
+                    <img class="card-img-top rounded-bottom mx-auto d-block" src="{{ user.image.url }}" style="max-height: 250px; width: min-content;">
+                    <!--  mx-auto d-block" style="max-height: 225px; width: min-content;" -->
+      
+                    <div class="card-body">
+                      <p class="card-text" style="text-align: center;">{{user.headline}}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <a class="btn btn-sm btn-outline-primary" href="{% url 'about:user_info' user.user_name %}" role="button">View profile</a>
+                          {% if user.email %}
+                          <a class="btn btn-sm btn-outline-success" href="mailto:{{ user.email }}" role="button">Contact</a>
+                          {% endif %}
+                          <a href="mailto:"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+    {% else %}
+    <h1>Sorry, we have a problem.</h1>
+    <p>To fix it, please contact your system administrator and request to add a new user.</p>
+    {% endif %}
+
+    {% endblock content %}
+        
+        

@@ -5,6 +5,7 @@ class User(models.Model):
     first_name = models.CharField("First name", max_length=100)
     last_name  = models.CharField("Last name", max_length=100)
     email      = models.EmailField("E-mail address", max_length=254)
+    user_name  = models.CharField("User name", max_length=50, unique=True , null=True)
     resume     = models.FileField("CV", null=True, upload_to='uploads/', max_length=100)
     image      = models.ImageField("Profile photo", upload_to='images/', height_field=None, width_field=None, max_length=None)
     headline   = models.CharField("About", max_length=50)
@@ -17,7 +18,7 @@ class User(models.Model):
 class Education(models.Model):
     """Model definition for Education."""
     institution = models.CharField("School/Institution", max_length=100)
-    degree      = models.CharField("", max_length=50)
+    degree      = models.CharField("Degree", max_length=50)
     start_date  = models.DateTimeField("Start date")
     end_date    = models.DateTimeField("End date")
     user        = models.ForeignKey(User, on_delete=models.CASCADE)

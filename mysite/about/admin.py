@@ -19,7 +19,7 @@ class UserAdmin(admin.ModelAdmin):
     # pass
     list_display = ('first_name', 'last_name', 'email')
     fieldsets = [
-        ('USER INFORMATION', {'fields': ['first_name', 'last_name', 'email', 'resume', 'image', 'headline', 'location'], 
+        ('USER INFORMATION', {'fields': ['first_name', 'last_name', 'user_name', 'email', 'resume', 'image', 'headline', 'location'], 
                                  'classes': ['wide']}),
     ]
     inlines = [EducationInline, ExperienceInline, ]

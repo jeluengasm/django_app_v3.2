@@ -1,0 +1,40 @@
+{% extends 'about/base.html' %}
+
+{% block title %}
+  <title>{{ user.first_name }} {{ user.last_name }} - Profile information</title>
+{% endblock title %}
+
+{% block content %}
+  <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <img src="{{ user.image.url }}" class="rounded-circle" width="250" height="250" alt=""
+            style="align-content: center;" />
+          <h1 class="fw-dark">{{ user.first_name }} {{ user.last_name }}</h1>
+          <p class="lead text-muted">{{ user.headline }}</p>
+          <p>
+            <a role="button" class="btn btn-outline-primary" href="https://www.linkedin.com/in/jeluengasm/">
+              
+            </a>
+            &nbsp;&nbsp;
+            <a role="button" class="btn btn-outline-dark" href="https://github.com/jeluengasm">
+              
+            </a>
+            &nbsp;&nbsp;
+            <a role="button" class="btn btn-outline-dark" href="https://gitlab.com/jeluengasm">
+              
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="album py-5">
+      <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+         
+        </div>
+      </div>
+    </div>
+{% endblock content %}
