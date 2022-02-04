@@ -39,7 +39,7 @@ class Experience(models.Model):
     """Model definition for Experience."""
     company    = models.CharField("Company", max_length=50) 
     job_title  = models.CharField("Job title", max_length=50) 
-    localtion  = models.CharField("Location", max_length=50) 
+    location  = models.CharField("Location", max_length=50) 
     start_date = models.DateTimeField("Start date")
     end_date   = models.DateTimeField("End date")
     user       = models.ForeignKey(User, on_delete=models.CASCADE)
